@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+#content {
+   padding-top:102px;
+}
+
+.diy_juice_bnr .tlt {
+   width:192px;
+   height:21px;
+   text-indent: -9999px;
+   background: url(../images/diy_juice/diy_juice_tlt.png) no-repeat;
+}
+
+.diy_juice_bnr .bnr_bg {
+	width:800px;
+	height:197px;
+	display: inline-block;
+	padding-top:6px;
+	text-indent: -9999px;
+	background: url(../images/diy_juice/diy_juice_bnr.gif) no-repeat  0 6px;
+}
+.diy_juice_img {
+	padding-bottom:143px;
+}

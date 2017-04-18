@@ -1,0 +1,101 @@
+@charset "utf-8";
+
+#content02 {
+    position: relative;
+}
+.tlt_cart {
+	width:122px;
+	/*background: ;*/
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.cart_total {width: 200px; margin: 20px 75%;}
+
+.cart_total dt{
+    float: left;
+    width: 80px;
+    font-size: 14px;
+    line-height: 25px;
+    font-weight: bold;
+}
+.cart_total dd{
+    float: right;
+    width: 120px;
+    font-size: 14px;
+    line-height: 25px;
+    text-align: right;
+}
+.btn_pay{
+    float: right;
+    margin-top: 10px;
+}
+
+.form {
+	width:405px;
+	margin:0 auto;
+    position: absolute;
+    bottom:230px;
+    left:50px;
+}
+.form .field {
+	*zoom: 1;
+}
+.form .field:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+.form .field * {
+	vertical-align: middle;
+}
+.form .label {
+	display: inline-block;
+	float:left;
+	width: 90px;
+    height:21.2px;
+    color: #fff;
+	background-color: #d2d3d5;
+	font-weight: bold;
+	text-align: center;
+    line-height: 20px;
+    margin-top:10px;
+}
+.form .chk_field {
+	height: 18px;
+	margin-top: 4px;
+	color: #666;
+	font-size: 1em;
+	text-indent: 18px;
+	line-height: 18px;
+
+}
+.form .inp_field {
+    width:310px;
+	height: 18px;
+	color: #666;
+	font-size: 1em;
+	text-indent: 18px;
+	line-height: 18px;
+    margin-top:10px;
+}
+.form .ckeck_field {
+    width:400px;
+    height:21.1px;
+    margin-top:10px;
+    border: 1px solid #d2d3d5;
+}
+.form .chk_field_area {
+	display: block;
+    padding-top:10px;
+}
+.form .rdo_field_area {
+    font-weight: bold;
+	display: block;
+    padding-top:3px;
+    text-align: center;
+}
+.form .rdo_field_area label {
+    padding-right:18px;
+}
+

@@ -1,0 +1,122 @@
+@charset "utf-8";
+
+.tlt_cart {
+	width:122px;
+	background: none;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.product_h {padding-top: 36px;}
+.product_h .product_big{
+    float: left;
+    width: 291px;
+    height: 455px;
+}
+.product_h .product_info{
+    float: left;
+    width: 509px;
+    padding-top: 79px;
+}
+.product_h .product_info .product_price {
+    font-size:25px;
+    color: #797373;
+    text-align: left;
+    line-height: 30px;
+    padding:45px 0 8px 0;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.product_h .product_info .product_price02 {
+    font-size:20px;
+    font-weight: lighter;
+}
+.product_h .product_info .product_info02{
+    border-top: 2px solid #757575;    
+    border-bottom: 1px solid #bdbdbd;
+    }
+.product_h .product_info .product_info02 dl{
+    float: left;
+    width: 40%;
+    margin: 11px 0 ;
+}
+.product_h .product_info .product_info02 dt {
+    float: left;
+    display: block;
+    width:30%;
+    font-size: 13px;
+    line-height: 22px;
+    text-align: left; 
+    color: #212121 ;
+    font-weight: bold;
+}
+.product_h .product_info .product_info02 dd {
+    float: left;
+    display: block;
+    width:70%;
+    font-size: 13px;
+    line-height: 22px;
+    text-align: left; 
+    color: #555;
+}
+.product_h .product_info .product_info02 dd p{
+    width: 50%;
+    font-size: 13px;
+    line-height: 25px;
+    text-align: left;
+    border-bottom: none;
+}
+.product_quantity {float: right;width:52%;}
+.product_quantity ul{margin: 45px 0 10px 0;}
+.product_quantity li{
+    float: left;
+    height: 40px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 32px;
+    margin-right: 10px;
+}
+.input_num {
+    width: 120px;
+    height: 31px;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 30px;
+    color: #797373;
+    text-align: center;
+    border: 1px solid #b4b4b4;
+}
+.product_total{
+    font-size: 30px;
+    line-height: 55px;
+    text-align: right;
+    color: #ee125a;
+    border-bottom: 2px solid #757575; 
+    font-weight: bold;
+}
+.product_total01{
+    font-size: 20px;
+    line-height: 55px;
+    text-align: right;
+    color: #000;
+    font-weight: bold;
+    padding-right: 20px;
+}
+.product_total02{
+    font-size: 25px;
+    line-height: 55px;
+    text-align: right;
+    color: #ee125a;
+}
+.product_order{
+    width: 100%;
+    margin: 10px 0 0 50%;
+}
+.product_bnr {
+    padding-top: 110px;
+}
+
+.product_detail {
+    padding: 70px 0;
+}
+

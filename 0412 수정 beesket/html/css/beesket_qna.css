@@ -1,0 +1,118 @@
+@charset "utf-8";
+
+#content {
+   padding-top:102px;
+}
+
+.tlt_qna {
+	width:122px;
+	/*background: ;*/
+    font-size: 30px;
+    font-weight: bold;
+}
+.btn_qa {
+	float:right;
+	margin-bottom: 5px;
+}
+.btn_qa button {
+	width:auto;
+	height: 30px;
+	color:#fff;
+	font-size: 12px;
+	line-height: 30px;
+	letter-spacing: 2px;
+	text-align: center;
+	background-color: #f90d4f;
+	padding: 1px 30px 0 30px ;
+}
+
+.paginate{
+	padding:15px 0;
+	text-align:center
+}
+.paginate span {
+	display:inline-block;
+	margin-left:-7px;
+	padding:0px 8px 0px 7px;
+	background:#fff;
+	font-size:12px;
+	font-weight:bold;
+	line-height:normal;
+	text-decoration:none;
+}
+.paginate a.pre{
+	padding:3px 8px 1px 16px;
+	border:none;
+	background:url(../images/common/bu_pg1_l1.png) no-repeat 5px;
+}
+.paginate a.next{
+	padding:3px 16px 1px 8px;
+	border:none;
+	background:url(../images/common/bu_pg1_r1.png) no-repeat 5px;
+}
+
+.boxstyle01{
+	position:relative;
+	width:600px;
+	background:#eff0f4;
+	border-top:1px solid #a9b0c2;
+	border-bottom:1px solid #a9b0c2;
+	padding:5px 10px;
+	margin: 0 auto;
+}
+.boxstyle01 fieldset{position:relative;width:100%; padding:10px 0; line-height:25px;}
+.boxstyle01 legend{display:none;}
+.boxstyle01 .field{padding: 5px 0;}
+.boxstyle01 label.title01{
+	display: block;
+	float: left;
+	width:70px;
+	font-size:12px;
+	font-weight:bold; 
+	color:#252b39;
+	text-align:right; 
+	margin:0 10px;
+	line-height:24px;
+}
+.boxstyle01 label.title02{
+	display: block;
+	float: left;
+	width:50px;
+	font-size:12px;
+	font-weight:bold; 
+	color:#252b39;
+	text-align:right; 
+	margin:0 10px;
+	line-height:24px;
+}
+.inp_field{
+	float: left;
+	width:200px;
+	height:20px;
+	border:1px solid #d5d5d5; 
+	padding:3px 0 0 5px;
+}
+.inp_field02{
+	width:477px;
+	height:20px;
+	border:1px solid #d5d5d5; 
+	padding:3px 0 0 5px;
+}
+.txt_field{
+	width:477px;
+	height:120px;
+	border:1px solid #d5d5d5; 
+	padding:3px 0 0 5px;
+}
+.btn_write {width:25%;margin: 15px auto;}
+.btn_write button {
+	width:auto;
+	height: 30px;
+	color:#fff;
+	font-size: 12px;
+	line-height: 30px;
+	letter-spacing: 2px;
+	text-align: center;
+	background-color: #f90d4f;
+	padding: 1px 30px 0 30px ;
+}

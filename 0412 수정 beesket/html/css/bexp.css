@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+#content {
+   padding-top:102px;
+}
+.bexp_bnr {
+	text-align: center;
+}
+.bexp_bnr .tlt {
+   width:303px;
+   height:225px;
+   padding-bottom:30px;
+   text-indent: -9999px;
+   background: url(../images/bexp/bexp_tlt.jpg) no-repeat;
+}
+
+.bexp_img {
+	padding-bottom:143px;
+}

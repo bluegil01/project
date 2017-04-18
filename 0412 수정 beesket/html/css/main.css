@@ -1,0 +1,45 @@
+@charset "utf-8";
+
+.content_inn {margin:0 auto;}
+/*슬라이드 디자인*/
+.slider {
+	position: relative;
+	width: 800px;
+	height: 551px;
+}
+.owl-prev {
+	position: absolute;
+	top:240px;
+	left:18px;
+	width:35px;
+	height:64px;
+	text-indent: -9999px;
+	background: url(../images/common/arrow_left.png) no-repeat 0 0;
+}
+.owl-next {
+	position: absolute;
+	top:240px;
+	right:18px;
+	width:35px;
+	height:64px;
+	text-indent: -9999px;
+	background: url(../images/common/arrow_right.png) no-repeat 0 0;
+}
+.main_bnr {
+	width: 100%;
+	margin:65px 0;
+}
+.main_bnr ul {}
+.main_bnr ul li {
+	float:left;
+	padding-right:10px;
+	display:inline-block;
+}
+.main_bnr ul li:last-child{
+	padding-right:0;
+}
+.social_instar{
+	margin-bottom: 65px;
+}
+
+

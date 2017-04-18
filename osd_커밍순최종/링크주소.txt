@@ -1,0 +1,18 @@
+[국문] 
+
+1. 스피커 신청 : https://docs.google.com/forms/d/e/1FAIpQLSeyXG5zY08uUfkxD-azpGQhG6OjuaE32Pf62EVGUCmTF8A8lQ/viewform?c=0&w=1
+
+2. 스폰서 문의 : (메일연결) osdk2017@gmail.com
+
+3. 지난 행사 보기 : http://event.openstack.or.kr/2016
+
+
+
+
+[영문]
+
+1. Call for Speakers : https://docs.google.com/forms/d/e/1FAIpQLSeyXG5zY08uUfkxD-azpGQhG6OjuaE32Pf62EVGUCmTF8A8lQ/viewform?c=0&w=1
+
+2. Sponsorship : (메일연결) osdk2017@gmail.com
+
+3. OpenStack days Korea 2016 : http://event.openstack.or.kr/2016

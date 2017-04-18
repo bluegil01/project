@@ -1,0 +1,152 @@
+@charset "utf-8";
+
+#content {
+   height:850px;
+}
+.tit {
+	width: 192px;
+    height: 21px;
+    text-indent: -9999px;
+    background: url(../images/global_shops/global_shops_tlt.png) no-repeat;
+}
+.bnr_bg {
+	height:197px;
+	padding-top:6px;
+	text-indent: -9999px;
+	background: url(../images/global_shops/bnr_bg.png) no-repeat  0 6px;
+}
+
+/*****************************(global shops)*****************************/
+/*.content_wrap .content.shop {padding:0 20px 900px;}*/
+
+
+/*****국가*****/
+.content.shop .lnb_place {
+	padding:85px 0 40px 60px;
+}
+.content.shop .choose_btn{
+	float:left;
+	margin-right:50px;
+}
+.content.shop .place {
+	float:left;
+	border:1px solid #6d6e71;
+	position:relative;
+	width:505px;
+	}
+.content.shop .place .p_choose {
+	display:inline-block;
+	height:25px;
+	width:505px;
+	text-align:center;
+	}
+.content.shop .place .p_choose>h2 {
+	padding-left:15px;
+	color:#000;
+	font-size:13px;
+	line-height:25px;
+	text-align:left;
+	font-weight:700;
+	}
+.content.shop .place .p_choose>h2 span.flag {
+	position:absolute;
+	 left:-170px; 
+	 top:60px;
+	 }
+.content.shop .place .p_choose>span.arrow {
+	position:absolute;
+	right:10px; 
+	top:-5px; 
+	background:url(../images/global_shops/down.png) no-repeat right center; 
+	background-size:17px; 
+	width:37px; 
+	height:37px;
+	}
+.content.shop .place .p_choose>span.arrow.on {
+	background-image:url(../images/global_shops/up.png);
+	}
+
+.content.shop .place>ul {
+	position:absolute; 
+	left:0; top:40px; 
+	background:rgba(160,170,180,0.9); 
+	width:100%; 
+	display:none; 
+	z-index:10;
+	}
+
+.content.shop .place>ul>li {
+	height:40px; 
+	width:100%; 
+	border-bottom:1px solid #666464;
+	}
+
+.content.shop .place>ul>li:first-child {
+	border-top:1px solid #666464;
+	}
+
+.content.shop .place>ul>li a {
+	display:block; 
+	font-size:12px; 
+	color:#FFF; 
+	line-height:40px; 
+	text-align:center; 
+	font-weight:700;
+	}
+.content.shop .place>ul>li a.on {color:#ED0C6E;}
+
+
+/*****국가별 지점,사진*****/
+.content.shop .place_region {position:relative;}
+.content.shop .place_region .p_region {
+	position:absolute; 
+	right:25px; 
+	top:0; 
+	width:506px;
+	}
+.content.shop .place_region .p_region>li {border-bottom:1px solid #D1D2D4;}
+.content.shop .place_region .p_region>li:first-child {border-top:2px solid #D1D2D4;}
+.content.shop .place_region .p_region>li:last-child {border-bottom:2px solid #D1D2D4;}
+
+.content.shop .place_region .p_region>li>a {
+	display:block; 
+	padding:10px; 
+	background:url(../images/global_shops/down.png) no-repeat 97% center; 
+	background-size:15px;
+	}
+.content.shop .place_region .p_region>li>a.on {background-image:url(../images/global_shops/up.png);}
+
+.content.shop .place_region .p_region>li>a>p {
+	font-size:12px; 
+	letter-spacing:-0.05em; 
+	line-height:24px; 
+	color:#666464; 
+	font-weight:600;
+	}
+.content.shop .place_region .p_region>li>a>p>span {
+	font-size:14px; 
+	color:#ED0C6E; 
+	font-weight:700;
+	float:left;
+	line-height: 17px;
+	width:115px;
+	padding-left:10px;
+	}
+.content.shop .place_region .p_region>li>a>p>em {
+		padding-left:27px;
+		display: inline-block;
+}
+.content.shop .place_region .ico_bexp {
+	float:left;
+	display: block;
+	padding-left:7px;
+}
+.content.shop .place_region .p_region>li .photo {
+	width:100%; 
+	height:auto; 
+	margin-bottom:20px; 
+	display:none;
+	}
+.content.shop .place_region .p_region>li .photo.on {display:block;}
+.content.shop .place_region .p_region>li .photo img {width:100%; height:auto;}
+.content.shop .place_region .p_region>li .photo .map {margin-top:10px; display:block;}

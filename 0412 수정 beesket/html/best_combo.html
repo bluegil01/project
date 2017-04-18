@@ -1,0 +1,1449 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+    <title>Beesket</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+    <link rel="stylesheet" href="css/common.css" type="text/css">
+    <link rel="stylesheet" href="css/layout.css" type="text/css">
+    <link rel="stylesheet" href="css/swiper.min.css" type="text/css">
+    <link rel="stylesheet" href="css/bestcombo.css" type="text/css">
+    <link href="css/slick.css" rel="stylesheet" type="text/css">
+    <link href="css/swiper.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css" type="text/css">
+	<link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+	<script src="js/jquery-1.12.4.min.js" type="text/javascript"></script>
+	<script src="js/jquery-ui.min.js" type="text/javascript"></script>
+	<script src="js/owl.carousel.min.js" type="text/javascript"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/slick.min.js"></script>
+	<script src="js/common.js" type="text/javascript"></script>
+    <script>
+$(document).ready(function() {
+	//헤더 마이페이지
+	var sw3=0;
+	$('.header .mypage').click(function(e){
+		e.preventDefault();
+		if(sw3==0) {
+			$('.swiper-container').css({'visibility':'visible'}).slideDown();
+			sw3=1;
+		} else {
+			$('.swiper-container').slideUp();
+			sw3=0;
+		}
+	});
+	//콤보선택 스위치(텝메뉴)
+	var sw1=0;
+	$('.best_combo .b_choose').click(function(e){
+		e.preventDefault();
+		
+		if(sw1==0){
+			$('.best_combo>ul').slideDown();
+			$('.best_combo .b_choose>span').addClass('on');
+			sw1=1;
+		} else {
+			$('.best_combo>ul').slideUp();
+			$('.best_combo .b_choose>span').removeClass('on');
+			sw1=0;
+		}
+	});
+	//베스트 콤보 선택시 내용 매치
+	$('.best_combo .b_choose>h2:gt(0)').hide();
+	$('.best_group .group:gt(0)').hide();
+	var num;
+	
+	$('.best_combo>ul>li').click(function(e){
+		e.preventDefault();
+		
+		num=$(this).index();
+		//console.log(num);
+		sw1=0;
+		$('.best_combo .b_choose>h2').hide();
+		$('.best_combo .b_choose>h2').eq(num).show();
+		$('.best_group .group').hide();
+		$('.best_group .group').eq(num).show();
+		$('.best_combo>ul>li').find('a').not(this).removeClass('on');
+		$(this).find('a').addClass('on');
+		$('.best_combo>ul').slideUp();
+		$('.best_combo .b_choose>span').removeClass('on');
+	});
+	//각 조합 클릭시 영양정보 모달팝업 띄우기
+	$('.popup_wrap').hide();
+	
+	$('.best_group .group .diy_wrap').click(function(e){
+		e.preventDefault();
+		
+		$('.popup_wrap').fadeIn(400);
+		$('.popup_wrap .popup').show();
+	});
+	//영양정보 모달팝업 닫기
+	$('.popup_close').click(function(){
+		$('.popup_wrap .popup').fadeOut(400,function(){
+			$('.popup_wrap').hide();
+		});
+	});
+});
+</script>
+</head>
+<body>
+<body>
+<!-- skip -->
+<ul id="skip">
+	<li><a href="#gnb">주메뉴 바로가기</a></li>
+	<li><a href="#content">본문 바로가기</a></li>
+</ul>
+<!-- //skip -->
+<div id="wrap">
+	<!-- header -->
+	<div id="header">
+		<div class="top_dnm clearfix">
+			<!-- top_dtm -->
+			<ul>
+				<li><a href="#">로그인</a></li>
+				<li><a href="#">회원가입</a></li>
+				<li><a href="beesket_cart.html">장바구니</a></li>
+				<li><a href="my_page.html">마이페이지</a></li>
+				<li class="top_dtm_notice"><a href="#"><p>NOTICE</p></a></li>
+				<li class="top_dtm_qna"><a href="beesket_qna.html"><p>Q&amp;A</p></a></li>
+				<li><a href="#">EVENT</a></li>
+				<li><a href="#">KOREAN/ENGLISH</a></li>
+			</ul>
+		</div>
+		<div class="logo"><h1><a href="../index.html">beesket</a></h1></div>
+		<div class="gnb clearfix">
+			<ul class="clearfix">
+				<li class="mainmenu01"><a href="detoxoxo01.html">DETOXOXO</a></li>
+				<li class="mainmenu02"><a href="diy_juice.html">D.I.Y JUICE</a></li>
+				<li class="mainmenu03"><a href="best_combo.html">BEST COMBO</a></li>
+				<li class="mainmenu04"><a href="quick_menu.html">QUICK MENU</a></li>
+				<li class="mainmenu05"><a href="global_shops.html">GLOBAL SHOPS</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- //header -->
+	<!-- container -->
+	<div id="container">
+		<!-- content -->
+		<div id="content02">
+            <h1 class="tit_txt tlt_bestcombo">BESTCOMBO</h1>
+        <div class="content_wrap">
+            <div class="content combo">
+            	<div class="best_combo">
+                    <a class="b_choose" href="#">
+                        <h2>BEST COMBINATION 10</h2>
+                        <h2>REGIONAL BEST 10</h2>
+                        <h2>MALE/FEMALE BEST 10</h2>
+                        <h2>AGE BEST 10</h2>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul>
+                        <li><a class="on" href="#">BEST COMBINATION 10</a></li>
+                        <li><a href="#">REGIONAL BEST 10</a></li>
+                        <li><a href="#">MALE/FEMALE BEST 10</a></li>
+                        <li><a href="#">AGE BEST 10</a></li>
+                    </ul>
+                </div>
+                <div class="best_group">
+                	<ul class="group">
+                        <li>
+                        	<h3>I Like Squeeze</h3>
+                            <h4>센스있는 그녀의 깔끔한 선택</h4>
+                        	<div class="swiper-container2">
+                            	<div class="swiper-wrapper">
+                                	<div class="swiper-slide">
+                                    	<p class="num">01</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/squeeze_line.png" alt="">
+                                                <img class="diy01" src="capsule/melon.png" alt="">
+                                                <img class="diy02" src="capsule/pear.png" alt="">
+                                                <img class="diy03" src="capsule/grape.png" alt="">
+                                                <p>멜론/배/적포도</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">02</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/squeeze_line.png" alt="">
+                                                <img class="diy01" src="capsule/green_grape.png" alt="">
+                                                <img class="diy02" src="capsule/orange.png" alt="">
+                                                <img class="diy03" src="capsule/grapefruit.png" alt="">
+                                                <p>청포도/오렌지/자몽</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">03</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/squeeze_line.png" alt="">
+                                                <img class="diy01" src="capsule/lemon.png" alt="">
+                                                <img class="diy02" src="capsule/pineapple.png" alt="">
+                                                <img class="diy03" src="capsule/apple.png" alt="">
+                                                <p>레몬/파인애플/사과</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">04</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/squeeze_line.png" alt="">
+                                                <img class="diy01" src="capsule/carrot.png" alt="">
+                                                <img class="diy02" src="capsule/apple.png" alt="">
+                                                <img class="diy03" src="capsule/orange.png" alt="">
+                                                <p>당근/사과/오렌지</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Add Arrows -->
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                            <script>
+							var swiper2 = new Swiper('.group .swiper-container2', {
+								nextButton: '.swiper-button-next',
+								prevButton: '.swiper-button-prev',
+								slidesPerView: 3,
+								spaceBetween: 10,
+								freeMode: true
+                    		});
+							</script>
+                        </li>
+                        <li>
+                        	<h3>I Like Refreshing Fruits</h3>
+                            <h4>상큼한 조합을 원할 땐 ~</h4>
+                        	<div class="swiper-container3">
+                            	<div class="swiper-wrapper">
+                                	<div class="swiper-slide">
+                                    	<p class="num">01</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/pineapple.png" alt="">
+                                                <img class="diy02" src="capsule/orange.png" alt="">
+                                                <img class="diy03" src="capsule/grapefruit.png" alt="">
+                                                <p>파인애플/오렌지/자몽</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">02</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/lemon.png" alt="">
+                                                <img class="diy02" src="capsule/apple.png" alt="">
+                                                <img class="diy03" src="capsule/green_grape.png" alt="">
+                                                <p>레몬/사과/청포도</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">03</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/raspberry.png" alt="">
+                                                <img class="diy02" src="capsule/strawberry.png" alt="">
+                                                <img class="diy03" src="capsule/blueberry.png" alt="">
+                                                <p>라즈베리/딸기/블루베리</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">04</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/strawberry.png" alt="">
+                                                <img class="diy02" src="capsule/kiwi.png" alt="">
+                                                <img class="diy03" src="capsule/grape.png" alt="">
+                                                <p>딸기/키위/적포도</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Add Arrows -->
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                            <script>
+							var swiper3 = new Swiper('.group .swiper-container3', {
+								nextButton: '.swiper-button-next',
+								prevButton: '.swiper-button-prev',
+								slidesPerView: 3,
+								spaceBetween: 10,
+								freeMode: true
+							});
+							</script>
+                        </li>
+                        <li>
+                        	<h3>I Like Veggie</h3>
+                            <h4>신선한 채소로 파워업 ~~~</h4>
+                        	<div class="swiper-container4">
+                            	<div class="swiper-wrapper">
+                                	<div class="swiper-slide">
+                                    	<p class="num">01</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/kale.png" alt="">
+                                                <img class="diy02" src="capsule/green_grape.png" alt="">
+                                                <img class="diy03" src="capsule/melon.png" alt="">
+                                                <p>케일/청포도/멜론</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">02</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/carrot.png" alt="">
+                                                <img class="diy02" src="capsule/apple.png" alt="">
+                                                <img class="diy03" src="capsule/tomato.png" alt="">
+                                                <p>당근/사과/토마토</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">03</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/bok_choy.png" alt="">
+                                                <img class="diy02" src="capsule/pineapple.png" alt="">
+                                                <img class="diy03" src="capsule/pear.png" alt="">
+                                                <p>청경채/파인애플/배</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">04</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/red_cabbage.png" alt="">
+                                                <img class="diy02" src="capsule/apple.png" alt="">
+                                                <img class="diy03" src="capsule/grape.png" alt="">
+                                                <p>적채/사과/적포도</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Add Arrows -->
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                            <script>
+							var swiper4 = new Swiper('.group .swiper-container4', {
+								nextButton: '.swiper-button-next',
+								prevButton: '.swiper-button-prev',
+								slidesPerView: 3,
+								spaceBetween: 10,
+								freeMode: true
+							});
+							</script>
+                        </li>
+                        <li>
+                        	<h3>I Like Banana</h3>
+                            <h4>바나나의 달콤한 매력 ~</h4>
+                        	<div class="swiper-container5">
+                            	<div class="swiper-wrapper">
+                                	<div class="swiper-slide">
+                                    	<p class="num">01</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/banana.png" alt="">
+                                                <img class="diy02" src="capsule/mango.png" alt="">
+                                                <img class="diy03" src="capsule/ripe_persimmon.png" alt="">
+                                                <p>바나나/망고/홍시</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">02</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/banana.png" alt="">
+                                                <img class="diy02" src="capsule/kiwi.png" alt="">
+                                                <img class="diy03" src="capsule/pineapple.png" alt="">
+                                                <p>바나나/키위/파인애플</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">03</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/banana.png" alt="">
+                                                <img class="diy02" src="capsule/yogurt.png" alt="">
+                                                <img class="diy03" src="capsule/blueberry.png" alt="">
+                                                <p>바나나/요거트/블루베리</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">04</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/banana.png" alt="">
+                                                <img class="diy02" src="capsule/strawberry.png" alt="">
+                                                <img class="diy03" src="capsule/pineapple.png" alt="">
+                                                <p>바나나/딸기/파인애플</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Add Arrows -->
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                            <script>
+							var swiper5 = new Swiper('.group .swiper-container5', {
+								nextButton: '.swiper-button-next',
+								prevButton: '.swiper-button-prev',
+								slidesPerView: 3,
+								spaceBetween: 10,
+								freeMode: true
+							});
+							</script>
+                        </li>
+                        <li>
+                        	<h3>I Like Apple</h3>
+                            <h4>소녀의 홍조처럼 사랑스런 사과 ~</h4>
+                        	<div class="swiper-container6">
+                            	<div class="swiper-wrapper">
+                                	<div class="swiper-slide">
+                                    	<p class="num">01</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/apple.png" alt="">
+                                                <img class="diy02" src="capsule/orange.png" alt="">
+                                                <img class="diy03" src="capsule/pineapple.png" alt="">
+                                                <p>사과/오렌지/파인애플</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">02</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/apple.png" alt="">
+                                                <img class="diy02" src="capsule/pear.png" alt="">
+                                                <img class="diy03" src="capsule/kiwi.png" alt="">
+                                                <p>사과/배/키위</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">03</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/apple.png" alt="">
+                                                <img class="diy02" src="capsule/cherry.png" alt="">
+                                                <img class="diy03" src="capsule/green_grape.png" alt="">
+                                                <p>사과/체리/청포도</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">04</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/apple.png" alt="">
+                                                <img class="diy02" src="capsule/raspberry.png" alt="">
+                                                <img class="diy03" src="capsule/dragon_fruit.png" alt="">
+                                                <p>사과/라즈베리/용과</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Add Arrows -->
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                            <script>
+							var swiper6 = new Swiper('.group .swiper-container6', {
+								nextButton: '.swiper-button-next',
+								prevButton: '.swiper-button-prev',
+								slidesPerView: 3,
+								spaceBetween: 10,
+								freeMode: true
+							});
+							</script>
+                        </li>
+                        <li>
+                        	<h3>I Like Yogurt</h3>
+                            <h4>요거트로 더욱 건강하게 ~</h4>
+                        	<div class="swiper-container7">
+                            	<div class="swiper-wrapper">
+                                	<div class="swiper-slide">
+                                    	<p class="num">01</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/yogurt.png" alt="">
+                                                <img class="diy02" src="capsule/grapefruit.png" alt="">
+                                                <img class="diy03" src="capsule/green_grape.png" alt="">
+                                                <p>요거트/자몽/청포도</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">02</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/yogurt.png" alt="">
+                                                <img class="diy02" src="capsule/pineapple.png" alt="">
+                                                <img class="diy03" src="capsule/grape.png" alt="">
+                                                <p>요거트/파인애플/적포도</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">03</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/yogurt.png" alt="">
+                                                <img class="diy02" src="capsule/strawberry.png" alt="">
+                                                <img class="diy03" src="capsule/blueberry.png" alt="">
+                                                <p>요거트/딸기/블루베리</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">04</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/yogurt.png" alt="">
+                                                <img class="diy02" src="capsule/tomato.png" alt="">
+                                                <img class="diy03" src="capsule/apple.png" alt="">
+                                                <p>요거트/토마토/사과</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Add Arrows -->
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                            <script>
+							var swiper7 = new Swiper('.group .swiper-container7', {
+								nextButton: '.swiper-button-next',
+								prevButton: '.swiper-button-prev',
+								slidesPerView: 3,
+								spaceBetween: 10,
+								freeMode: true
+							});
+							</script>          
+                        </li>
+                    </ul>
+                    <ul class="group">
+                        <li>
+                        	<h3>Korea</h3>
+                            <h4>한국</h4>
+                        	<div class="swiper-container2">
+                            	<div class="swiper-wrapper">
+                                	<div class="swiper-slide">
+                                    	<p class="num">01</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/squeeze_line.png" alt="">
+                                                <img class="diy01" src="capsule/melon.png" alt="">
+                                                <img class="diy02" src="capsule/pear.png" alt="">
+                                                <img class="diy03" src="capsule/grape.png" alt="">
+                                                <p>멜론/배/적포도</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">02</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/squeeze_line.png" alt="">
+                                                <img class="diy01" src="capsule/green_grape.png" alt="">
+                                                <img class="diy02" src="capsule/orange.png" alt="">
+                                                <img class="diy03" src="capsule/grapefruit.png" alt="">
+                                                <p>청포도/오렌지/자몽</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">03</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/squeeze_line.png" alt="">
+                                                <img class="diy01" src="capsule/lemon.png" alt="">
+                                                <img class="diy02" src="capsule/pineapple.png" alt="">
+                                                <img class="diy03" src="capsule/apple.png" alt="">
+                                                <p>레몬/파인애플/사과</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">04</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/squeeze_line.png" alt="">
+                                                <img class="diy01" src="capsule/carrot.png" alt="">
+                                                <img class="diy02" src="capsule/apple.png" alt="">
+                                                <img class="diy03" src="capsule/orange.png" alt="">
+                                                <p>당근/사과/오렌지</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Add Arrows -->
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                            <script>
+							var swiper2 = new Swiper('.group .swiper-container2', {
+								nextButton: '.swiper-button-next',
+								prevButton: '.swiper-button-prev',
+								slidesPerView: 3,
+								spaceBetween: 10,
+								freeMode: true
+                    		});
+							</script>
+                        </li>
+                        <li>
+                        	<h3>UAE</h3>
+                            <h4>두바이</h4>
+                        	<div class="swiper-container3">
+                            	<div class="swiper-wrapper">
+                                	<div class="swiper-slide">
+                                    	<p class="num">01</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/pineapple.png" alt="">
+                                                <img class="diy02" src="capsule/orange.png" alt="">
+                                                <img class="diy03" src="capsule/grapefruit.png" alt="">
+                                                <p>파인애플/오렌지/자몽</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">02</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/lemon.png" alt="">
+                                                <img class="diy02" src="capsule/apple.png" alt="">
+                                                <img class="diy03" src="capsule/green_grape.png" alt="">
+                                                <p>레몬/사과/청포도</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">03</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/raspberry.png" alt="">
+                                                <img class="diy02" src="capsule/strawberry.png" alt="">
+                                                <img class="diy03" src="capsule/blueberry.png" alt="">
+                                                <p>라즈베리/딸기/블루베리</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">04</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/strawberry.png" alt="">
+                                                <img class="diy02" src="capsule/kiwi.png" alt="">
+                                                <img class="diy03" src="capsule/grape.png" alt="">
+                                                <p>딸기/키위/적포도</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Add Arrows -->
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                            <script>
+							var swiper3 = new Swiper('.group .swiper-container3', {
+								nextButton: '.swiper-button-next',
+								prevButton: '.swiper-button-prev',
+								slidesPerView: 3,
+								spaceBetween: 10,
+								freeMode: true
+                    		});
+							</script>
+                        </li>
+                        <li>
+                        	<h3>Singapore</h3>
+                            <h4>싱가포르</h4>
+                        	<div class="swiper-container4">
+                            	<div class="swiper-wrapper">
+                                	<div class="swiper-slide">
+                                    	<p class="num">01</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/kale.png" alt="">
+                                                <img class="diy02" src="capsule/green_grape.png" alt="">
+                                                <img class="diy03" src="capsule/melon.png" alt="">
+                                                <p>케일/청포도/멜론</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">02</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/carrot.png" alt="">
+                                                <img class="diy02" src="capsule/apple.png" alt="">
+                                                <img class="diy03" src="capsule/tomato.png" alt="">
+                                                <p>당근/사과/토마토</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">03</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/bok_choy.png" alt="">
+                                                <img class="diy02" src="capsule/pineapple.png" alt="">
+                                                <img class="diy03" src="capsule/pear.png" alt="">
+                                                <p>청경채/파인애플/배</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">04</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/red_cabbage.png" alt="">
+                                                <img class="diy02" src="capsule/apple.png" alt="">
+                                                <img class="diy03" src="capsule/grape.png" alt="">
+                                                <p>적채/사과/적포도</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Add Arrows -->
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                            <script>
+							var swiper4 = new Swiper('.group .swiper-container4', {
+								nextButton: '.swiper-button-next',
+								prevButton: '.swiper-button-prev',
+								slidesPerView: 3,
+								spaceBetween: 10,
+								freeMode: true
+                    		});
+							</script>
+                        </li>
+                        <li>
+                        	<h3>Brunei</h3>
+                            <h4>브루나이</h4>
+                        	<div class="swiper-container5">
+                            	<div class="swiper-wrapper">
+                                	<div class="swiper-slide">
+                                    	<p class="num">01</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/banana.png" alt="">
+                                                <img class="diy02" src="capsule/mango.png" alt="">
+                                                <img class="diy03" src="capsule/ripe_persimmon.png" alt="">
+                                                <p>바나나/망고/홍시</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">02</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/banana.png" alt="">
+                                                <img class="diy02" src="capsule/kiwi.png" alt="">
+                                                <img class="diy03" src="capsule/pineapple.png" alt="">
+                                                <p>바나나/키위/파인애플</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">03</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/banana.png" alt="">
+                                                <img class="diy02" src="capsule/yogurt.png" alt="">
+                                                <img class="diy03" src="capsule/blueberry.png" alt="">
+                                                <p>바나나/요거트/블루베리</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">04</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/banana.png" alt="">
+                                                <img class="diy02" src="capsule/strawberry.png" alt="">
+                                                <img class="diy03" src="capsule/pineapple.png" alt="">
+                                                <p>바나나/딸기/파인애플</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Add Arrows -->
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                            <script>
+							var swiper5 = new Swiper('.group .swiper-container5', {
+								nextButton: '.swiper-button-next',
+								prevButton: '.swiper-button-prev',
+								slidesPerView: 3,
+								spaceBetween: 10,
+								freeMode: true
+                    		});
+							</script>
+                        </li>
+                        <li>
+                        	<h3>China</h3>
+                            <h4>중국</h4>
+                        	<div class="swiper-container6">
+                            	<div class="swiper-wrapper">
+                                	<div class="swiper-slide">
+                                    	<p class="num">01</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/apple.png" alt="">
+                                                <img class="diy02" src="capsule/orange.png" alt="">
+                                                <img class="diy03" src="capsule/pineapple.png" alt="">
+                                                <p>사과/오렌지/파인애플</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">02</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/apple.png" alt="">
+                                                <img class="diy02" src="capsule/pear.png" alt="">
+                                                <img class="diy03" src="capsule/kiwi.png" alt="">
+                                                <p>사과/배/키위</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">03</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/apple.png" alt="">
+                                                <img class="diy02" src="capsule/cherry.png" alt="">
+                                                <img class="diy03" src="capsule/green_grape.png" alt="">
+                                                <p>사과/체리/청포도</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">04</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/apple.png" alt="">
+                                                <img class="diy02" src="capsule/raspberry.png" alt="">
+                                                <img class="diy03" src="capsule/dragon_fruit.png" alt="">
+                                                <p>사과/라즈베리/용과</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Add Arrows -->
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                            <script>
+							var swiper6 = new Swiper('.group .swiper-container6', {
+								nextButton: '.swiper-button-next',
+								prevButton: '.swiper-button-prev',
+								slidesPerView: 3,
+								spaceBetween: 10,
+								freeMode: true
+                    		});
+							</script>
+                        </li>
+                    </ul>
+                    <ul class="group">
+                        <li>
+                        	<h3>Male Best 10</h3>
+                            <h4>남자들이 찾는 베스트 콤보!!</h4>
+                        	<div class="swiper-container2">
+                            	<div class="swiper-wrapper">
+                                	<div class="swiper-slide">
+                                    	<p class="num">01</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/squeeze_line.png" alt="">
+                                                <img class="diy01" src="capsule/melon.png" alt="">
+                                                <img class="diy02" src="capsule/pear.png" alt="">
+                                                <img class="diy03" src="capsule/grape.png" alt="">
+                                                <p>멜론/배/적포도</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">02</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/squeeze_line.png" alt="">
+                                                <img class="diy01" src="capsule/green_grape.png" alt="">
+                                                <img class="diy02" src="capsule/orange.png" alt="">
+                                                <img class="diy03" src="capsule/grapefruit.png" alt="">
+                                                <p>청포도/오렌지/자몽</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">03</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/squeeze_line.png" alt="">
+                                                <img class="diy01" src="capsule/lemon.png" alt="">
+                                                <img class="diy02" src="capsule/pineapple.png" alt="">
+                                                <img class="diy03" src="capsule/apple.png" alt="">
+                                                <p>레몬/파인애플/사과</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">04</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/squeeze_line.png" alt="">
+                                                <img class="diy01" src="capsule/carrot.png" alt="">
+                                                <img class="diy02" src="capsule/apple.png" alt="">
+                                                <img class="diy03" src="capsule/orange.png" alt="">
+                                                <p>당근/사과/오렌지</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Add Arrows -->
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                            <script>
+							var swiper2 = new Swiper('.group .swiper-container2', {
+								nextButton: '.swiper-button-next',
+								prevButton: '.swiper-button-prev',
+								slidesPerView: 3,
+								spaceBetween: 10,
+								freeMode: true
+                    		});
+							</script>
+                        </li>
+                        <li>
+                        	<h3>Female Best 10</h3>
+                            <h4>여자들이 찾는 베스트 콤보!!</h4>
+                        	<div class="swiper-container3">
+                            	<div class="swiper-wrapper">
+                                	<div class="swiper-slide">
+                                    	<p class="num">01</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/pineapple.png" alt="">
+                                                <img class="diy02" src="capsule/orange.png" alt="">
+                                                <img class="diy03" src="capsule/grapefruit.png" alt="">
+                                                <p>파인애플/오렌지/자몽</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">02</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/lemon.png" alt="">
+                                                <img class="diy02" src="capsule/apple.png" alt="">
+                                                <img class="diy03" src="capsule/green_grape.png" alt="">
+                                                <p>레몬/사과/청포도</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">03</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/raspberry.png" alt="">
+                                                <img class="diy02" src="capsule/strawberry.png" alt="">
+                                                <img class="diy03" src="capsule/blueberry.png" alt="">
+                                                <p>라즈베리/딸기/블루베리</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">04</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/strawberry.png" alt="">
+                                                <img class="diy02" src="capsule/kiwi.png" alt="">
+                                                <img class="diy03" src="capsule/grape.png" alt="">
+                                                <p>딸기/키위/적포도</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Add Arrows -->
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                            <script>
+							var swiper3 = new Swiper('.group .swiper-container3', {
+								nextButton: '.swiper-button-next',
+								prevButton: '.swiper-button-prev',
+								slidesPerView: 3,
+								spaceBetween: 10,
+								freeMode: true
+                    		});
+							</script>
+                        </li>
+                    </ul>
+                    <ul class="group">
+                        <li>
+                        	<h3>Age 10</h3>
+                            <h4>10대들이 찾는 베스트 콤보!!</h4>
+                        	<div class="swiper-container2">
+                            	<div class="swiper-wrapper">
+                                	<div class="swiper-slide">
+                                    	<p class="num">01</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/squeeze_line.png" alt="">
+                                                <img class="diy01" src="capsule/melon.png" alt="">
+                                                <img class="diy02" src="capsule/pear.png" alt="">
+                                                <img class="diy03" src="capsule/grape.png" alt="">
+                                                <p>멜론/배/적포도</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">02</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/squeeze_line.png" alt="">
+                                                <img class="diy01" src="capsule/green_grape.png" alt="">
+                                                <img class="diy02" src="capsule/orange.png" alt="">
+                                                <img class="diy03" src="capsule/grapefruit.png" alt="">
+                                                <p>청포도/오렌지/자몽</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">03</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/squeeze_line.png" alt="">
+                                                <img class="diy01" src="capsule/lemon.png" alt="">
+                                                <img class="diy02" src="capsule/pineapple.png" alt="">
+                                                <img class="diy03" src="capsule/apple.png" alt="">
+                                                <p>레몬/파인애플/사과</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">04</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/squeeze_line.png" alt="">
+                                                <img class="diy01" src="capsule/carrot.png" alt="">
+                                                <img class="diy02" src="capsule/apple.png" alt="">
+                                                <img class="diy03" src="capsule/orange.png" alt="">
+                                                <p>당근/사과/오렌지</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Add Arrows -->
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                            <script>
+							var swiper2 = new Swiper('.group .swiper-container2', {
+								nextButton: '.swiper-button-next',
+								prevButton: '.swiper-button-prev',
+								slidesPerView: 3,
+								spaceBetween: 10,
+								freeMode: true
+                    		});
+							</script>
+                        </li>
+                        <li>
+                        	<h3>Age 20</h3>
+                            <h4>20대들이 찾는 베스트 콤보!!</h4>
+                        	<div class="swiper-container3">
+                            	<div class="swiper-wrapper">
+                                	<div class="swiper-slide">
+                                    	<p class="num">01</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/pineapple.png" alt="">
+                                                <img class="diy02" src="capsule/orange.png" alt="">
+                                                <img class="diy03" src="capsule/grapefruit.png" alt="">
+                                                <p>파인애플/오렌지/자몽</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">02</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/lemon.png" alt="">
+                                                <img class="diy02" src="capsule/apple.png" alt="">
+                                                <img class="diy03" src="capsule/green_grape.png" alt="">
+                                                <p>레몬/사과/청포도</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">03</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/raspberry.png" alt="">
+                                                <img class="diy02" src="capsule/strawberry.png" alt="">
+                                                <img class="diy03" src="capsule/blueberry.png" alt="">
+                                                <p>라즈베리/딸기/블루베리</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">04</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/strawberry.png" alt="">
+                                                <img class="diy02" src="capsule/kiwi.png" alt="">
+                                                <img class="diy03" src="capsule/grape.png" alt="">
+                                                <p>딸기/키위/적포도</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Add Arrows -->
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                            <script>
+							var swiper3 = new Swiper('.group .swiper-container3', {
+								nextButton: '.swiper-button-next',
+								prevButton: '.swiper-button-prev',
+								slidesPerView: 3,
+								spaceBetween: 10,
+								freeMode: true
+                    		});
+							</script>
+                        </li>
+                        <li>
+                        	<h3>Age 30</h3>
+                            <h4>30대들이 찾는 베스트 콤보!!</h4>
+                        	<div class="swiper-container4">
+                            	<div class="swiper-wrapper">
+                                	<div class="swiper-slide">
+                                    	<p class="num">01</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/kale.png" alt="">
+                                                <img class="diy02" src="capsule/green_grape.png" alt="">
+                                                <img class="diy03" src="capsule/melon.png" alt="">
+                                                <p>케일/청포도/멜론</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">02</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/carrot.png" alt="">
+                                                <img class="diy02" src="capsule/apple.png" alt="">
+                                                <img class="diy03" src="capsule/tomato.png" alt="">
+                                                <p>당근/사과/토마토</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">03</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/bok_choy.png" alt="">
+                                                <img class="diy02" src="capsule/pineapple.png" alt="">
+                                                <img class="diy03" src="capsule/pear.png" alt="">
+                                                <p>청경채/파인애플/배</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">04</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/red_cabbage.png" alt="">
+                                                <img class="diy02" src="capsule/apple.png" alt="">
+                                                <img class="diy03" src="capsule/grape.png" alt="">
+                                                <p>적채/사과/적포도</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Add Arrows -->
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                            <script>
+							var swiper4 = new Swiper('.group .swiper-container4', {
+								nextButton: '.swiper-button-next',
+								prevButton: '.swiper-button-prev',
+								slidesPerView: 3,
+								spaceBetween: 10,
+								freeMode: true
+                    		});
+							</script>
+                        </li>
+                        <li>
+                        	<h3>Age 40+</h3>
+                            <h4>40대 이상이 찾는 베스트 콤보!!</h4>
+                        	<div class="swiper-container5">
+                            	<div class="swiper-wrapper">
+                                	<div class="swiper-slide">
+                                    	<p class="num">01</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/banana.png" alt="">
+                                                <img class="diy02" src="capsule/mango.png" alt="">
+                                                <img class="diy03" src="capsule/ripe_persimmon.png" alt="">
+                                                <p>바나나/망고/홍시</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">02</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/banana.png" alt="">
+                                                <img class="diy02" src="capsule/kiwi.png" alt="">
+                                                <img class="diy03" src="capsule/pineapple.png" alt="">
+                                                <p>바나나/키위/파인애플</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">03</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/banana.png" alt="">
+                                                <img class="diy02" src="capsule/yogurt.png" alt="">
+                                                <img class="diy03" src="capsule/blueberry.png" alt="">
+                                                <p>바나나/요거트/블루베리</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="num">04</p>
+                                        <a class="basket_order" href="#"><img src="images/bestcombo/basket_order.png" alt=""></a>
+                                        <a class="diy_wrap" href="#">
+                                            <div class="diy_cover combo">
+                                                <img class="diy_line" src="capsule/original_line.png" alt="">
+                                                <img class="diy01" src="capsule/banana.png" alt="">
+                                                <img class="diy02" src="capsule/strawberry.png" alt="">
+                                                <img class="diy03" src="capsule/pineapple.png" alt="">
+                                                <p>바나나/딸기/파인애플</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Add Arrows -->
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                            <script>
+							var swiper5 = new Swiper('.group .swiper-container5', {
+								nextButton: '.swiper-button-next',
+								prevButton: '.swiper-button-prev',
+								slidesPerView: 3,
+								spaceBetween: 10,
+								freeMode: true
+                    		});
+							</script>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </div>
+		<!-- //content -->
+	</div>
+	<!-- //container -->
+</div>
+<!-- footer -->
+<!--/하단 메뉴 및 주소, 카피라잇-->
+<div id="footer_area">
+    <div id="SiteInfo">
+        <div class="bexp_info clearfix">
+            <h2><a href="bexp_hongkong.html">bexp. 소개</a></h2>
+            <ul>
+                <li class="bexp_info01"><a href="#">GLOBAL EXPANSION</a></li>
+                <li class="bexp_info02"><a href="#">GLOBAL PARTNERSHIP APPLICATION</a></li>
+            </ul>
+			<ul>
+				<li class="footer_social"></li>
+				<li class="footer_social01"><a href="#">facebook</a></li>
+                <li class="footer_social02"><a href="#">instargram</a></li>
+            </ul>
+        </div>
+        <div class="footer_quick clearfix">
+        	<h2>메뉴바로가기</h2>
+            <ul>
+                <li class="footer_quick01"><a href="beesket_story.html">BEESKET STORY</a></li>
+                <li class="footer_quick02"><a href="detoxoxo01.html">DETOXOXO</a></li>
+                <li class="footer_quick03"><a href="diy_juice.html">D.I.Y. JUICE</a></li>
+                <li class="footer_quick04"><a href="quick_menu.html">QUICK MENU</a></li>
+                <li class="footer_quick05"><a href="global_shops.html">GLOBAL SHOPS</a></li>
+                <li class="footer_quick06"><a href="bnuts.html">b:nuts</a></li>
+            </ul>
+        </div>
+    </div>
+	<div class="footer_cert clearfix">
+		<h2>인증마크</h2>
+		<ul>
+			<li class="footer_cert01">특허청</li>
+			<li class="footer_cert02">연구개발전담부서인정</li>
+			<li class="footer_cert03">INNOBIZ</li>
+			<li class="footer_cert04">Kibo</li>
+			<li class="footer_cert05">kotra</li>
+			<li class="footer_cert06">한국특허정보원장상 수상</li>
+		</ul>
+	</div>
+    <div class="footer_dnm clearfix">
+    	<h2>메뉴바로가기</h2>
+        <ul>
+            <li><a href="#">개인정보취급방침</a></li>
+            <li><a href="#">이용약관</a></li>
+            <li><a href="#">이메일수집거부</a></li>
+        </ul>
+    </div>
+    <div id="footer_copyright">
+        <div class="copyright  clearfix">
+	        <h2>Beesket</h2>
+	        <p>
+	            사업자등록번호 117-81-72586    (주)비스켓글로벌    대표이사 조성훈
+서울특별시 양천구 목동중앙본로20길 57 정훈빌딩 1층          TEL: 02-3141-2366          FAX: 02-722-2366
+Global Partnership Q&amp;A  TEL: +971.56.8664211    EMAIL: global@beesket.com
+COPYRIGHTⓒ 2015 BEESKET GLOBAL INC. All Rights Reserved.
+	        </p>
+        </div>
+    </>
+</div>
+<!--//하단 메뉴 및 주소, 카피라잇-->
+</body>
+</html>

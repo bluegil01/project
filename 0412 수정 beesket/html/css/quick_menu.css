@@ -1,0 +1,57 @@
+@charset "utf-8";
+
+#content {
+   padding-top:102px;
+}
+.quick_menu_list {
+	padding:7px 0 80px 0;
+}
+.quick_menu_list ul li a {
+	width:800px;
+	height: 270px;
+	display: block;
+	text-indent: -9999px;
+}
+.quick_menu_list .quick_menu01 {
+	background: url(../images/quick_menu/quick_menu_01.jpg) no-repeat;
+}
+.quick_menu_list .quick_menu02 {
+	background: url(../images/quick_menu/quick_menu_02.jpg) no-repeat;
+}
+.quick_menu_list .quick_menu03 {
+	background: url(../images/quick_menu/quick_menu_03.jpg) no-repeat;
+}
+.quick_menu_list .quick_menu04 {
+	background: url(../images/quick_menu/quick_menu_04.jpg) no-repeat;
+}
+
+/*blended_Juice/squeezed_juice/yogurt/fruit_tea*/
+.tlt_quick_menu {
+   width:192px;
+   height:21px;
+   text-indent: -9999px;
+   background: url(../images/quick_menu/quick_menu_sub_tlt.png) no-repeat;
+}
+.quick_sub_menu {padding:25px 0 0 30px;margin: 0 auto;}
+.quick_sub_menu ul {}
+.quick_sub_menu li {
+	float:left;
+	border-right: 2px solid #cdcecf;
+	padding: 0 10px;
+}
+.quick_sub_menu li:last-child {
+	border-right:0;
+}
+.quick_sub_menu li a {
+	font-size: 13px;
+	color: #231f20;
+	font-weight: bold;
+}
+.quick_sub_menu li.current a{
+	font-size: 13px;
+	color: #ff0000;
+	font-weight: bold;
+}
+.menu_img {
+	padding: 90px 0 200px 0;
+}

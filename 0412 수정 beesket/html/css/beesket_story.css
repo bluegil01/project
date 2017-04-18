@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+#content {
+   padding-top:102px;
+}
+
+.beesket_story_bnr .tlt {
+   width:200px;
+   height:21px;
+   text-indent: -9999px;
+   background: url(../images/beesket_story/beesket_story_tlt.png) no-repeat;
+}
+
+.beesket_story_bnr .bnr_bg {
+	width:800px;
+	height:197px;
+	display: inline-block;
+	padding-top:6px;
+	text-indent: -9999px;
+	background: url(../images/beesket_story/beesket_story_bnr.gif) no-repeat  0 6px;
+}
+.beesket_story_bnr_img {
+	padding-bottom:143px;
+}

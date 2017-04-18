@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+.tlt_bnuts {
+	width:92px;
+    height: 27px;
+	background: url(../images/bnuts/sub_title_bnuts.png) no-repeat;
+    padding-bottom: 15px;
+}
+.bnr_bg {
+	width:800px;
+	height:197px;
+	padding-top:6px;
+	text-indent: -9999px;
+	background: url(../images/bnuts/bnr_bg.jpg) no-repeat  0 6px;
+}
+.bnuts_img {
+    margin-top: 75px;
+}
